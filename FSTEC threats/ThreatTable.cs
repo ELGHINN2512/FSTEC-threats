@@ -139,96 +139,12 @@ namespace FSTEC_threats
 
         public void Update()
         {
-            if (this.dataTable == null)
-            {
-                MessageBox.Show("Для начала требуется скачать локальную базу данных.\n Выберите режим отображения в меню сверху.");
-                if(File.Exists("thrlist.xlsx"))
-                {
-                    ReadFile();
-                }
-                else
-                {
-                    DownloadFile("thrlist.xlsx");
-                    ReadFile();
-                }
-            }
-
-            try
-            {
-                ThreatTable NewThreatTable = new ThreatTable("thrlist1.xlsx");
-                if(!File.Exists("thrlist1.xlsx"))
-                    NewThreatTable.DownloadFile(NewThreatTable.fileName);
-                NewThreatTable.ReadFile();
-                Report report = ThreatTable.Compare(this, NewThreatTable);
-                MessageBox.Show(report.ToString());
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
 
         }
 
         private static Report Compare(ThreatTable threatTableOld, ThreatTable threatTableNew)
         {
-            Report report = new Report();
-            DataTable dataTableNew = threatTableNew.dataTable;
-            DataTable dataTableOld = threatTableOld.dataTable;
-            if (threatTableOld == null | threatTableNew == null)
-                return null;
-
-            //Отслеживает новые уязвмости
-            /*
-            if(dataTableNew.Rows.Count != dataTableOld.Rows.Count)
-            {
-                for (int i = dataTableOld.Rows.Count; i < dataTableOld.Rows.Count; i++)
-                {
-                }
-            }
-            */
-            
-            //Отслеживаем изменения
-            /*
-            if(dataTableOld.Rows.Count <= dataTableNew.Rows.Count)
-            {
-                for (int i = 0; i < dataTableNew.Rows.Count; i++)
-                {
-                    if(dataTableNew.Rows[i][0] == dataTableOld.Rows[i][0])
-                    {
-                        for (int j = 1; i < 10; i++)
-                        {
-                            if (dataTableNew.Rows[i][j] != dataTableOld.Rows[i][j])
-                            {
-                                report.AddChange(dataTableNew.Rows[i][j].ToString(),
-                                    dataTableNew.Columns[j].ColumnName,
-                                    dataTableOld.Rows[i][j].ToString(),
-                                    dataTableNew.Rows[i][j].ToString());
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < dataTableOld.Rows.Count; i++)
-                {
-                    if (dataTableNew.Rows[i][0] == dataTableOld.Rows[i][0])
-                    {
-                        for (int j = 1; i < 10; i++)
-                        {
-                            if (dataTableNew.Rows[i][j] != dataTableOld.Rows[i][j])
-                            {
-                                report.AddChange(dataTableNew.Rows[i][j].ToString(),
-                                    dataTableNew.Columns[j].ColumnName,
-                                    dataTableOld.Rows[i][j].ToString(),
-                                    dataTableNew.Rows[i][j].ToString());
-                            }
-                        }
-                    }
-                }
-            }
-            */
-            return report;
+            return null;
         }
     }
 }
