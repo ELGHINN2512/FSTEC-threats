@@ -151,7 +151,6 @@ namespace FSTEC_threats
             {
                 if (this.dataTable == null)
                 {
-                    MessageBox.Show("В начале требуется выбрать локальную базу угроз.\n Выберите режим отображения угроз в меню сверху.");
                     return;
                 }
                 ThreatTable threatTable = new ThreatTable("thrlist1.xlsx");
