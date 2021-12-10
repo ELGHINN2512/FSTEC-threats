@@ -32,36 +32,23 @@ namespace FSTEC_threats
         public MainWindow()
         {
             InitializeComponent();
+            DbGrig.ItemsSource = threatTable.СreateDataViewWithFullInformation();
         }
 
         private void MenuItemFull_Click(object sender, RoutedEventArgs e)
         {
-            if(threatTable == null)
-            {
-                threatTable = new ThreatTable("thrlist.xlsx");
-            }
-            else
-            {
-                DbGrig.ItemsSource = threatTable.СreateDataViewWithFullInformation();
-            }
+            DbGrig.ItemsSource = threatTable.СreateDataViewWithFullInformation();
         }
 
         private void MenuItemAbbreviated_Click(object sender, RoutedEventArgs e)
         {
-            if (threatTable == null)
-            {
-                DbGrig.ItemsSource = threatTable.СreateTableWithAbbreviatedInformation();
-            }
-            else
-            {
-                DbGrig.ItemsSource = threatTable.СreateTableWithAbbreviatedInformation();
-            }
+            DbGrig.ItemsSource = threatTable.СreateTableWithAbbreviatedInformation();
         }
 
         private void MenuItemUpdated_Click(object sender, RoutedEventArgs e)
         {
             threatTable.Update();
+            DbGrig.ItemsSource = threatTable.СreateDataViewWithFullInformation();
         }
-
     }
 }

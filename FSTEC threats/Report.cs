@@ -13,12 +13,12 @@ namespace FSTEC_threats
 
         public void AddChange(string id, string field, string old, string current)
         {
-            changesList.Append($"Изменена УБИ.{id}\nПоле {field} было: \n{old}\nстало:\n{current}\n");
+            changesList.Add($"Изменена УБИ.{id}\nПоле '{field}' было: \n{old}\nCтало:\n{current}\n");
         }
 
         public void AddNewThreat(string id, string name)
         {
-            changesList.Append($"Добавлена новая УБИ.{id} - {name}\n");
+            changesList.Add($"Добавлена новая УБИ.{id} - {name}\n");
         }
 
         public override string ToString()
@@ -28,11 +28,11 @@ namespace FSTEC_threats
             string res = "";
             foreach (var newThreat in newThreatList)
             {
-                res += newThreat;
+                res += newThreat + "\n";
             }
             foreach (var change in changesList)
             {
-                res += change;
+                res += change + "\n";
             }
             return res;
         }
