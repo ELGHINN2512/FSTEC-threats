@@ -167,7 +167,8 @@ namespace FSTEC_threats
             {
                 MessageBox.Show(ex.ToString());
             }
-            MessageBox.Show(report.ToString());
+            if(report != null)
+                MessageBox.Show(report.ToString());
 
         }
 

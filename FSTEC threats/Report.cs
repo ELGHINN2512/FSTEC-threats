@@ -24,8 +24,9 @@ namespace FSTEC_threats
         public override string ToString()
         {
             if (newThreatList.Count == 0 && changesList.Count == 0)
-                return "Никаких изменений не произошло";
-            string res = "";
+                return "Обновление прошло успешно\nНикаких изменений не произошло";
+            string res = $"Обновление прошло успешно\nКоличество изменённых полей: {changesList.Count}\n" +
+                $"Количество добавленных уязвиомостей: {newThreatList.Count}\n\n";
             foreach (var newThreat in newThreatList)
             {
                 res += newThreat + "\n";
