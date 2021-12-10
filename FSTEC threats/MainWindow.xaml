@@ -1,0 +1,25 @@
+﻿<Window x:Class="FSTEC_threats.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FSTEC_threats"
+        mc:Ignorable="d"
+        Title="Локальная база данных угроз безопасности информации" Height="450" Width="800" Icon="icon.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DbGrig" Margin="0,21,0,0" IsReadOnly="True" HeadersVisibility="None" />
+        <StackPanel>
+            <Menu>
+                <MenuItem Header="Режим отоброжения угроз">
+                    <MenuItem Header="Полный" Name="MenuItemFull" Click="MenuItemFull_Click"></MenuItem>
+                    <MenuItem Header="Сокращённый" Click="MenuItemAbbreviated_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Обновить сведения локальной базы" Click="MenuItemUpdated_Click"></MenuItem>
+            </Menu>
+        </StackPanel>
+    </Grid>
+   
+</Window>
